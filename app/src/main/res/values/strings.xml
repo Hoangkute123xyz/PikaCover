@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PikaCover</string>
+    <string name="video">Video</string>
+    <string name="profile">Tài khoản</string>
+    <string name="news">Bảng tin</string>
+    <string name="more">Thêm</string>
+    <string name="medium">Vừa</string>
+    <string name="hard">Khó</string>
+    <string name="easy">Dễ</string>
+    <string name="youtube_api_key">AIzaSyB2U9sTqVtJUtg-SsO1ubnRnqYZmEtq_yk</string>
+</resources>
