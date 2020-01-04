@@ -39,7 +39,7 @@ public class GetListSongAPI extends AsyncTask<String,Void, List<SongJsonObject.S
                 SongJsonObject object = new Gson().fromJson(json, SongJsonObject.class);
                 list.addAll(object.getSong());
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;

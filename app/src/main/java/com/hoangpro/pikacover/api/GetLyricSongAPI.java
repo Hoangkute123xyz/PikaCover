@@ -36,7 +36,7 @@ public class GetLyricSongAPI extends AsyncTask<String,Void, List<LyricObject.Dat
             String json = response.body().string();
             LyricObject object = new Gson().fromJson(json, LyricObject.class);
             list.addAll(object.getData());
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;

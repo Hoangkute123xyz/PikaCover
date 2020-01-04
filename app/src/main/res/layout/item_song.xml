@@ -22,7 +22,7 @@
             <ImageView
                 android:id="@+id/imgThumb"
                 android:layout_width="300dp"
-                android:layout_height="150dp"
+                android:layout_height="100dp"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -89,16 +89,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tvNameJ" />
 
     <TextView
-        android:padding="3dp"
         android:id="@+id/tvLevel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:background="@drawable/bg_item"
+        android:padding="3dp"
         android:text="TextView"
         android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvNameJ" />
 

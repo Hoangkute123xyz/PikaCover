@@ -91,7 +91,7 @@ public class MyFunct {
         if (connect == null) return false;
         NetworkInfo netInfo = connect.getActiveNetworkInfo();
 
-        return netInfo != null && netInfo.isConnected();
+        return netInfo != null && netInfo.isConnected() || isNetWorkMobile(context);
     }
 
     public static boolean isNetWorkMobile(Context context) {

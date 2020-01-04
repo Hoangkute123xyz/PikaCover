@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.google.gson.Gson;
 import com.hoangpro.pikacover.R;
@@ -32,6 +33,7 @@ public class FragmentVideo extends BaseFragment implements DataResult {
     private ProgressBar pgLoadMore;
     private SongListAdapter adapter;
     private boolean isLoading = true;
+    private SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public int setLayout() {
@@ -63,11 +65,19 @@ public class FragmentVideo extends BaseFragment implements DataResult {
                 }
             }
         });
+
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+
+            }
+        });
     }
 
     private void intiView(View view) {
         rvSong = view.findViewById(R.id.rvSong);
         pgLoadMore = view.findViewById(R.id.pgLoadMore);
+        swipeRefreshLayout=view.findViewById(R.id.swipeRefresh);
     }
 
     @Override
@@ -75,7 +85,7 @@ public class FragmentVideo extends BaseFragment implements DataResult {
         List<SongJsonObject.Song> data = (List<SongJsonObject.Song>) listResult;
         list.addAll(data);
         adapter.notifyDataSetChanged();
-        if (!MyFunct.isNetWork(getActivity())) {
+        if (!MyFunct.isNetWork(getActivity()) || list.size()==0) {
             String json = MySession.getListSongFromCache(getActivity());
             if (json.length() > 0) {
                 List<SongJsonObject.Song> songList = new Gson().fromJson(json, SongJsonObject.class).getSong();
@@ -87,8 +97,12 @@ public class FragmentVideo extends BaseFragment implements DataResult {
             object.setSong(list);
             MySession.saveListSong(getActivity(), new Gson().toJson(object));
         }
-        currentPage++;
+        if (data.size()>0) {
+            currentPage++;
+            isLoading = true;
+        } else {
+            isLoading=false;
+        }
         pgLoadMore.setVisibility(View.GONE);
-        isLoading = true;
     }
 }
