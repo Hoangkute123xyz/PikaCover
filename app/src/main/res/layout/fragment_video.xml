@@ -19,7 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewPager2"
+            app:layout_constraintTop_toBottomOf="@+id/vpSlider"
             app:layout_constraintVertical_bias="0.0" />
 
         <ProgressBar
@@ -33,11 +33,12 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.viewpager.widget.ViewPager
-            android:id="@+id/viewPager2"
+            android:id="@+id/vpSlider"
             android:layout_width="0dp"
             android:layout_height="120dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
